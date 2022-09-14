@@ -4,7 +4,7 @@ from django.db import models
 
 class Post(models.Model):
     title = models.CharField(max_length=75)
-    meta_title = models.CharField(max_length=100, null=True)  # The meta title to be used for browser title and SEO.
+    meta_title = models.CharField(max_length=100, null=True, blank=True)  # The meta title to be used for browser title.
     slug = models.SlugField(max_length=100, unique=True)
     summary = models.TextField(max_length=500, null=True)
     published = models.BooleanField(default=False)
@@ -55,6 +55,7 @@ class BaseCategoryTag(models.Model):
 class Category(BaseCategoryTag):
     class Meta:
         verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
 
 class PostCategory(models.Model):
