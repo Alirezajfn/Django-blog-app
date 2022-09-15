@@ -1,6 +1,7 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView
+from django.views.generic import ListView, CreateView
 
 from blog.models import *
 
@@ -54,3 +55,13 @@ class TagDetailView(PostListView):
 #         return HttpResponse('Tag not found')
 #     context = "\n".join([f"{post.title}, {post.content}" for post in posts])
 #     return HttpResponse(context)
+
+
+class CreatePostView(LoginRequiredMixin, CreateView):
+    model = Post
+    template_name = 'blog/post_create.html'
+    fields = ['title', 'content', 'author', 'published']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
