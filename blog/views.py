@@ -7,7 +7,7 @@ from blog.models import *
 
 
 def home(request):
-    return HttpResponse('Hello, World!')
+    return render(request, 'blog/index.html')
 
 
 class PostListView(ListView):
