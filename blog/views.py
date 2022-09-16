@@ -27,11 +27,9 @@ class PostListView(ListView):
 
 
 def post_detail(request, slug):
-    try:
-        post = Post.objects.filter(published=True).get(slug=slug)
-    except Post.DoesNotExist:
-        return HttpResponse('Post not found')
-    return render(request, 'blog/single-post.html')
+    post = get_object_or_404(Post, slug=slug, published=True)
+    context = {"post": post}
+    return render(request, 'blog/single-post.html', context=context)
 
 
 class CategoryDetailView(PostListView):
