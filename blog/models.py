@@ -56,6 +56,8 @@ class BaseCategoryTag(models.Model):
 
 
 class Category(BaseCategoryTag):
+    top_level = models.BooleanField(default=False)
+
     class Meta:
         verbose_name = 'Category'
         verbose_name_plural = 'Categories'

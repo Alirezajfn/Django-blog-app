@@ -1,0 +1,33 @@
+{% load static %}
+<section id="hero-slider" class="hero-slider">
+    <div class="container-md" data-aos="fade-in">
+        <div class="row">
+            <div class="col-12">
+                <div class="swiper sliderFeaturedPosts">
+                    <div class="swiper-wrapper">
+                        {% for post in posts %}
+                            <div class="swiper-slide">
+                                <a href="{% url 'blog:post_detail' slug=post.slug %}"
+                                   class="img-bg d-flex align-items-end"
+                                   style="background-image: url('{% static 'img/post-slide-1.jpg' %}');">
+                                    <div class="img-bg-inner">
+                                        <h2>{{ post.title }}</h2>
+                                        <p>{{ post.summary }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="custom-swiper-button-next">
+                        <span class="bi-chevron-right"></span>
+                    </div>
+                    <div class="custom-swiper-button-prev">
+                        <span class="bi-chevron-left"></span>
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
