@@ -45,7 +45,7 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="{% url 'blog:home' %}" class="logo d-flex align-items-center">
+      <a href="{% url 'core:home' %}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- todo: change logo and name-->
         <img src="{% static 'img/logo.png' %}" alt="">
@@ -54,7 +54,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="{% url 'blog:home' %}">Home</a></li>
+          <li><a href="{% url 'core:home' %}">Home</a></li>
           <li><a href="single-post.html">Blog</a></li>
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
@@ -75,8 +75,8 @@
             </ul>
           </li>
 
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="{% url 'core:about' %}">About</a></li>
+          <li><a href="{% url 'core:contact' %}">Contact</a></li>
         </ul>
       </nav><!-- .navbar -->
 
@@ -116,16 +116,16 @@
           <div class="col-lg-4">
             <h3 class="footer-heading">About ZenBlog</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ab, perspiciatis beatae autem deleniti voluptate nulla a dolores, exercitationem eveniet libero laudantium recusandae officiis qui aliquid blanditiis omnis quae. Explicabo?</p>
-            <p><a href="about.html" class="footer-link-more">Learn More</a></p>
+            <p><a href="{% url 'core:about' %}" class="footer-link-more">Learn More</a></p>
           </div>
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="{% url 'blog:home' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="{% url 'blog:home' %}"><i class="bi bi-chevron-right"></i> Blog</a></li>
+              <li><a href="{% url 'core:home' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="{% url 'core:home' %}"><i class="bi bi-chevron-right"></i> Blog</a></li>
               <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
-              <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
+              <li><a href="{% url 'core:about' %}"><i class="bi bi-chevron-right"></i> About us</a></li>
+              <li><a href="{% url 'core:contact' %}"><i class="bi bi-chevron-right"></i> Contact</a></li>
             </ul>
           </div>
           <div class="col-6 col-lg-2">

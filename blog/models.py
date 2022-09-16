@@ -18,6 +18,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    @classmethod
+    def get_recent_posts(cls):
+        return cls.objects.filter(published=True).order_by('-published_at')[:5]
 
 class PostMeta(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='meta')
