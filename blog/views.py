@@ -7,12 +7,13 @@ from blog.models import *
 
 
 def home(request):
+
     return render(request, 'blog/index.html')
 
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/post_list.html'
+    template_name = 'blog/post-list.html'
     context_object_name = 'posts'
 
     def get_queryset(self):

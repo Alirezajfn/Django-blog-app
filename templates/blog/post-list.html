@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <main id="main">
+    <section>
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-9" data-aos="fade-up">
+            {% for post in posts %}
+            <div class="d-md-flex post-entry-2 half">
+              <a href="single-post.html" class="me-4 thumbnail">
+                <img src="assets/img/post-landscape-6.jpg" alt="" class="img-fluid">
+              </a>
+              <div>
+                {% for cat in post.categories.all %}
+                <div class="post-meta"><a href="http://localhost:8000/category/sport-cat" class="date">{{ cat.category.title }}</a>
+                    <span class="mx-1">&bullet;</span> <span>{{ post.published_at }}</span></div>
+                {% endfor %}
+                <h3><a href="{% url 'blog:post_detail' slug=post.slug %}">{{ post.title }}</a></h3>
+                <p>{{ post.summary }}</p>
+                <div class="d-flex align-items-center author">
+                  <div class="photo"><img src="assets/img/person-2.jpg" alt="" class="img-fluid"></div>
+                  <div class="name">
+                    <h3 class="m-0 p-0">{{ post.author }}</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="text-start py-4">
+              <div class="custom-pagination">
+                <a href="#" class="prev">Prevous</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#" class="next">Next</a>
+              </div>
+            </div>
+          </div>
+          {% include 'blog/slidebar.html' %}
+        </div>
+      </div>
+    </section>
+  </main><!-- End #main -->
+{% endblock %}

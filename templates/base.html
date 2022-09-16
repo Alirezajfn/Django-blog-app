@@ -11,6 +11,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
+    <!-- todo: change favicon -->
   <link href="{% static 'img/favicon.png' %}" rel="icon">
   <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
@@ -44,16 +45,17 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="{% url 'blog:home' %}" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="{% static 'img/logo.png' %}" alt=""> -->
+          <!-- todo: change logo and name-->
+        <img src="{% static 'img/logo.png' %}" alt="">
         <h1>ZenBlog</h1>
       </a>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a href="index.html">Blog</a></li>
-          <li><a href="single-post.html">Single Post</a></li>
+          <li><a href="{% url 'blog:home' %}">Home</a></li>
+          <li><a href="single-post.html">Blog</a></li>
           <li class="dropdown"><a href="category.html"><span>Categories</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="search-result.html">Search Result</a></li>
@@ -79,7 +81,6 @@
       </nav><!-- .navbar -->
 
       <div class="position-relative">
-        <a href="#" class="mx-2"><span class="bi-facebook"></span></a>
         <a href="#" class="mx-2"><span class="bi-twitter"></span></a>
         <a href="#" class="mx-2"><span class="bi-instagram"></span></a>
 
@@ -120,10 +121,9 @@
           <div class="col-6 col-lg-2">
             <h3 class="footer-heading">Navigation</h3>
             <ul class="footer-links list-unstyled">
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Home</a></li>
-              <li><a href="index.html"><i class="bi bi-chevron-right"></i> Blog</a></li>
+              <li><a href="{% url 'blog:home' %}"><i class="bi bi-chevron-right"></i> Home</a></li>
+              <li><a href="{% url 'blog:home' %}"><i class="bi bi-chevron-right"></i> Blog</a></li>
               <li><a href="category.html"><i class="bi bi-chevron-right"></i> Categories</a></li>
-              <li><a href="single-post.html"><i class="bi bi-chevron-right"></i> Single Post</a></li>
               <li><a href="about.html"><i class="bi bi-chevron-right"></i> About us</a></li>
               <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Contact</a></li>
             </ul>
@@ -216,7 +216,6 @@
           <div class="col-md-6">
             <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
               <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
               <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
               <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
               <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
