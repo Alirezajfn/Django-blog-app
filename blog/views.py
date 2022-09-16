@@ -30,7 +30,7 @@ def post_detail(request, slug):
         post = Post.objects.filter(published=True).get(slug=slug)
     except Post.DoesNotExist:
         return HttpResponse('Post not found')
-    return HttpResponse(f"Post detail for {post.title}, {post.content}")
+    return render(request, 'blog/single-post.html')
 
 
 class CategoryDetailView(PostListView):
