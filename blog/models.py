@@ -13,6 +13,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    views = models.IntegerField(default=0)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
 
     def __str__(self):
@@ -21,6 +22,7 @@ class Post(models.Model):
     @classmethod
     def get_recent_posts(cls):
         return cls.objects.filter(published=True).order_by('-published_at')[:5]
+
 
 class PostMeta(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='meta')
@@ -86,7 +88,7 @@ class PostTag(models.Model):
 
 class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='post_images')
+    image = models.ImageField(upload_to='post_images/', default='post_images/post-landscape-1.jpg')
     caption = models.CharField(max_length=100, null=True, blank=True)
 
     def __str__(self):

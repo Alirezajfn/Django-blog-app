@@ -7,14 +7,16 @@
                     <div class="swiper-wrapper">
                         {% for post in posts %}
                             <div class="swiper-slide">
+                            {% for img in post.images.all %}
                                 <a href="{% url 'blog:post_detail' slug=post.slug %}"
                                    class="img-bg d-flex align-items-end"
-                                   style="background-image: url('{% static 'img/post-slide-1.jpg' %}');">
+                                   style="background-image: url({{ img.image.url }})">
                                     <div class="img-bg-inner">
                                         <h2>{{ post.title }}</h2>
                                         <p>{{ post.summary }}</p>
                                     </div>
                                 </a>
+                                {% endfor %}
                             </div>
                         {% endfor %}
                     </div>
