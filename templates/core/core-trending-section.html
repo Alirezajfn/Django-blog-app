@@ -1,0 +1,10 @@
+{% load static %}
+{% for post in posts %}
+    <li>
+        <a href="{% url 'blog:post_detail' slug=post.slug %}">
+            <span class="number">{{ forloop.counter }}</span>
+            <h3>{{ post.title }}</h3>
+            <span class="author">{{ post.author }}</span>
+        </a>
+    </li>
+{% endfor %}

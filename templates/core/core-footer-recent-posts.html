@@ -1,0 +1,17 @@
+{% load static %}
+{% for post in posts %}
+    <li>
+        <a href="single-post.html" class="d-flex align-items-center">
+            <img src="{{ post.images.first.image.url }}" alt="" class="img-fluid me-3">
+            <div>
+
+                <div class="post-meta d-block"><span class="date">{{ post.categories.first.category.title }}</span>
+                    <span class="mx-1">&bullet;</span>
+                    <span>{{ post.published_at }}</span>
+                </div>
+
+                <span>{{ post.title }}</span>
+            </div>
+        </a>
+    </li>
+{% endfor %}

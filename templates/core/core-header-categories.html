@@ -1,0 +1,4 @@
+{% load static %}
+{% for cat in categories %}
+    <li><a href="{% url 'blog:category_detail' slug=cat.slug %}">{{ cat.title }}</a></li>
+{% endfor %}
